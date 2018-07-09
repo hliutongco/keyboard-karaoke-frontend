@@ -13,7 +13,7 @@ class Song {
   }
 
   static getSongs(){
-    fetch('http://localhost:3000/api/v1/songs')
+    fetch('http://keyboard-karaoke-v1.herokuapp.com/api/v1/songs')
     .then(response => response.json())
     .then(data => {
       data.forEach((object) => {
@@ -24,7 +24,7 @@ class Song {
 
 
   sendScore(){
-    fetch(`http://localhost:3000/api/v1/songs/${this.id}`, {
+    fetch(`http://keyboard-karaoke-v1.herokuapp.com/api/v1/songs/${this.id}`, {
     method: 'PATCH',
     headers: {
       "Content-Type": "application/json",
