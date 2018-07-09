@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="stylesheet.css">
+  </head>
+  <body>
+
+    <div id="header"><h1><div id="terminal" preload="preload" >Keyboard...Karaoke!!</div></h1></div>
+
+
+    <div id='video-container'>
+      <video class="hidden" preload="preload" id="video">
+        <source type="video/mp4"></source>
+      </video>
+      <div id="lyric-container">
+      </div>
+      <div id="press-start">
+        <form id="username-form">
+          <h2>Type your username and press Enter</h2>
+          <input id="username-input" type="text" placeholder="username">
+        </form>
+      </div>
+      <div class="hidden" id="choose-song">
+        <h1 id="choose-song-h2">Use The	↑ And ↓ Keys To Select</h1>
+        <br/>
+        <h2><span id="choose-wonderful-world">Louis Armstrong - What A Wonderful World (Easy)</span></h2>
+        <h2><span id="choose-everlong">Foo Fighters - Everlong (Normal)</span></h2>
+        <h2><span id="choose-roar">Katy Perry - Roar (Difficult)</span></h2>
+        <h2><span id="choose-gangster">Coolio - Gangster's Paradise (Very Difficult)</span></h2>
+        <h2><span id="choose-busta">Busta Rhymes (Impossible - NO STRIKES)</span></h2>
+      </div>
+    </div>
+
+
+
+
+
+    <div id="flex-container">
+      <div class="hidden flex-item" id="score-div">
+        <h3> Your score: </h3>
+        <h3 id="score"></h3>
+      </div>
+      <div class="hidden flex-item" id="strikes">
+        <h3> Strikes:  </h3>
+        <h3 id="strikesP"></h3>
+        <h3 id="ten-strikes">Ten Strikes and You're Out</h3>
+      </div>
+      <div class="hidden flex-item" id="lose">
+        <h3>"Strike 10! YOU LOSE!  (You clearly don't know good music...)"</h3>
+      </div>
+      <div class="hidden flex-item" id="highscore-div">
+        <h3> High Score: </h3>
+        <h3 id="high-score"></h3>
+      <div>
+    </div>
+
+    <audio id="audio" preload="auto" volume="1.0">
+
+    <script src="song.js"></script>
+    <script src="lyric.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
