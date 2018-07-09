@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
   function menuSelect(event){
     const array = [wonderfulWorldH2, everlongH2, roarH2, gangsterH2, bustaH2]
-    const mp3Src = ['mp3s/what-a-wonderful-world.mp3', 'mp3s/everlong.mp3', 'mp3s/Roar.mp3', 'mp3s/gangster.mp3', 'mp3s/busta.wav']
+    const mp3Src = ['mp3s/what-a-wonderful-world.mp3', 'mp3s/everlong.mp3', 'mp3s/roar.mp3', 'mp3s/gangster.mp3', 'mp3s/busta.wav']
     const currentTimeArr = [6, 34, 66, 63, 8]
 
     // if user presses down
@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function(){
   function chooseSong(id){
     if(id === 'choose-roar'){
       video.src = 'video/Roar.mp4'
-      song.src = 'mp3s/Roar.mp3'
+      song.src = 'mp3s/roar.mp3'
       lyrics = lyricStore.filter((object) => object.song_id === 1)
       thisSong = songStore.find((object) => object.id === 1)
       delay = 19500

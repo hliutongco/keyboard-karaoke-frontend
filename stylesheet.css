@@ -38,7 +38,7 @@ form {
 }
 
 .song-select:before {
-  content:url('Heart.png');
+  content:url('heart.png');
   margin-right: 3px;
 }
 
