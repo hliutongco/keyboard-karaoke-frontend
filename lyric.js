@@ -12,7 +12,7 @@ class Lyric {
   }
 
   static getLyrics(){
-    fetch('http://localhost:3000/api/v1/lyrics')
+    fetch('https://keyboard-karaoke-v1.herokuapp.com/api/v1/lyrics')
     .then(response => response.json())
     .then(data => {
       data.forEach((object) => {
