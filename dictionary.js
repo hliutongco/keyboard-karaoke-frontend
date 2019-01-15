@@ -30,6 +30,8 @@ let counter = -1
 let gameOver = false
 let string = elem.innerHTML;
 let i = 0;
+let correctLetters = ""
+// let incorrectLetters = ""
 let currentScore
 let strikes
 let thisSong
@@ -38,3 +40,4 @@ let delay
 let username
 let countdown
 let interval
+let letters

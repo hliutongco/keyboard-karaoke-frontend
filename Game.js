@@ -45,13 +45,16 @@ class Game {
     console.log("n: ", n);
     console.log("n: ", duration);
     if(lyrics[n] && !gameOver){
+      correctLetters = ""
+      // incorrectLetters = ""
+      letters = lyrics[n].content
       const words = document.createElement('p')
 
       // build the words with span elements around the letters
       for (let i = 0; i < lyrics[n].content.length; i++) {
         const span = document.createElement("span");
-        span.classList.add("span");
         span.innerHTML = lyrics[n].content[i];
+        span.classList.add("span")
         words.appendChild(span);
       }
 
@@ -70,19 +73,40 @@ class Game {
 
   static typing(event) {
     const spans = document.querySelectorAll('.span');
-    const typed = String.fromCharCode(event.which);
+    const typedLetter = String.fromCharCode(event.which);
 
-    for (let i = 0; i < spans.length; ++i) {
-      if (spans[i].innerHTML.toLowerCase() === typed.toLowerCase()) {
-        if (spans[i].classList.contains("bg")) { // if it already has class with the bg color then check the next one
-          continue;
-        }
-        else if (!spans[i].classList.contains("bg") && !spans[i-1] || spans[i-1].classList.contains("bg")) {
-          spans[i].classList.add("bg");
-          Scoring.tallyScore()
-        }
-      }
+    console.log("letters: ", letters);
+    console.log("correct letters: ", correctLetters);
+    let nextLetter = letters.length === correctLetters.length ? "" : letters.slice(correctLetters.length)[0]
+    console.log("next letter: ", nextLetter);
+
+    if(nextLetter){
+      nextLetter = nextLetter.toLowerCase();
     }
+
+    if(typedLetter.toLowerCase() === nextLetter){
+      console.log(spans);
+      console.log(correctLetters.length);
+      console.log(spans[correctLetters.length]);
+      // This was because of Arthur
+      // Yay!
+      spans[correctLetters.length].classList.add("bg");
+      correctLetters = correctLetters + letters.slice(correctLetters.length)[0]
+      Scoring.tallyScore()
+    }
+
+
+    // for (let i = 0; i < spans.length; ++i) {
+    //   if (spans[i].innerHTML.toLowerCase() === typed.toLowerCase()) {
+    //     if (spans[i].classList.contains("bg")) { // if it already has class with the bg color then check the next one
+    //       continue;
+    //     }
+    //     else if (!spans[i].classList.contains("bg") && !spans[i-1] || spans[i-1].classList.contains("bg")) {
+    //       spans[i].classList.add("bg");
+    //       Scoring.tallyScore()
+    //     }
+    //   }
+    // }
   }
 
 
