@@ -43,6 +43,14 @@ class Scoring {
        this.renderScore()
    }
 
+   static minusScore(){
+     if(!gameOver){
+       console.log("in minusScore");
+       currentScore -= 1
+     }
+       this.renderScore()
+   }
+
    static renderScore(){
       scoreArea.innerText = `${currentScore}`
    }

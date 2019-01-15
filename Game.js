@@ -99,6 +99,9 @@ class Game {
       correctLetters = correctLetters + letters.slice(correctLetters.length)[0]
       Scoring.tallyScore()
     }
+    else if(nextLetter) {
+      Scoring.minusScore()
+    }
 
 
     // for (let i = 0; i < spans.length; ++i) {

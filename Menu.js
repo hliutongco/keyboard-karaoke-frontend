@@ -62,6 +62,11 @@ class Menu {
   }
 
   static chooseSongHelper(vidURL, songURL, songId, delayNum){
+    // temporary patch: if songStore is empty, exit the function
+    if(songStore === []){
+      return
+    }
+
     video.src = vidURL
     song.src = songURL
     console.log(songStore);
