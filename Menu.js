@@ -6,65 +6,70 @@ class Menu {
   }
 
   static menuSelect(event) {
+    console.log(event);
     const array = [wonderfulWorldH2, everlongH2, roarH2, gangsterH2, bustaH2]
     const mp3Src = ['mp3s/what-a-wonderful-world.mp3', 'mp3s/everlong.mp3', 'mp3s/roar.mp3', 'mp3s/gangster.mp3', 'mp3s/busta.wav']
     const currentTimeArr = [6, 34, 66, 63, 8]
+    console.log(event.which);
 
-    // if user presses down
-    if(event.which === 40){
-      if(counter > 3){
-        return
-      }
-      else if(counter === -1){
-        counter += 1
-        array[counter].classList.add('song-select')
-        song.src = mp3Src[counter]
-        song.currentTime = currentTimeArr[counter];
-        song.play()
-      }
-      else {
-        array[counter].classList.remove('song-select')
-        song.pause()
-        counter += 1
+    switch(event.which){
+      // if user presses down
+      case 40:
+        if(counter === -1){
+          counter += 1
+          array[counter].classList.add('song-select')
+          song.src = mp3Src[counter]
+          song.currentTime = currentTimeArr[counter];
+          song.play()
+        }
+        else if(counter <= 3 && counter >= 0) {
+          array[counter].classList.remove('song-select')
+          song.pause()
+          counter += 1
 
-        array[counter].classList.add('song-select')
-        song.src = mp3Src[counter]
-        song.currentTime = currentTimeArr[counter];
-        song.play()
-      }
-    }
-    // if user presses up
-    else if(event.which === 38){
-      if(counter < 1){
-        return
-      }
-      else {
-      array[counter].classList.remove('song-select')
-      song.pause()
-      counter -= 1
+          array[counter].classList.add('song-select')
+          song.src = mp3Src[counter]
+          song.currentTime = currentTimeArr[counter];
+          song.play()
+        }
+        break;
+      // if user presses up
+      case 38:
+        console.log(counter);
+        console.log(array[counter]);
+        if(counter >= 1){
+          array[counter].classList.remove('song-select')
+          song.pause()
+          counter -= 1
 
-      array[counter].classList.add('song-select')
-      song.src = mp3Src[counter]
-      song.currentTime = currentTimeArr[counter];
-      song.play()
-      }
-    }
-    else if(event.which === 13){
-      if(!array[counter]){
-        return
-      }
-      song.pause()
-      array[counter].classList.remove('song-select')
-      this.chooseSong(array[counter].id)
+          array[counter].classList.add('song-select')
+          song.src = mp3Src[counter]
+          song.currentTime = currentTimeArr[counter];
+          song.play()
+        }
+        break;
+      // if user presses Enter
+      case 13:
+        console.log(this);
+        console.log(array, counter);
+        if(array[counter]){
+          song.pause()
+          array[counter].classList.remove('song-select')
+          this.chooseSong(array[counter].id)
+        }
+        break;
     }
   }
 
   static chooseSongHelper(vidURL, songURL, songId, delayNum){
     video.src = vidURL
     song.src = songURL
+    console.log(songStore);
+    console.log(songId);
     lyrics = lyricStore.filter((object) => object.song_id === songId)
     thisSong = songStore.find((object) => object.id === songId)
     delay = delayNum
+    console.log(thisSong);
   }
 
   static chooseSong(id){
@@ -90,6 +95,7 @@ class Menu {
     loseBox.classList.add('hidden')
     scoreBox.classList.add('hidden')
     highScoreBox.classList.add('hidden')
+    console.log(thisSong);
     if(thisSong.id === 5){
       pressStart.innerHTML = "<h2>Press Enter To Play Song  <br/><br/> There are NO strikes! </h2>"
     }

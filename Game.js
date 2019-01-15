@@ -5,9 +5,12 @@ class Game {
       pressStart.classList.add('hidden')
       lyricContainer.innerHTML = ''
 
+      n = 0
+      duration = 0
       countdown = 4
       strikes = 0
       currentScore = 0
+
       Scoring.renderStrikes()
       Scoring.renderScore()
       Scoring.renderHighScore()
@@ -21,6 +24,7 @@ class Game {
       video.currentTime = 0;
       song.play()
       video.play()
+      console.log(delay);
       setTimeout(() => this.displayCountdown(), delay - 4000)
       setTimeout(() => this.displayLyrics(), delay)
     }
@@ -36,7 +40,6 @@ class Game {
 
   static displayLyrics(){
     window.clearInterval(interval)
-    gameOver = false
 
     this.displayLine()
   }
@@ -66,7 +69,7 @@ class Game {
       duration = lyrics[n].duration * 1000
       n++;
 
-      setTimeout(() => this.displayLine(), duration)
+      timeout = setTimeout(() => this.displayLine(), duration)
 
     }
   }
@@ -80,11 +83,13 @@ class Game {
     let nextLetter = letters.length === correctLetters.length ? "" : letters.slice(correctLetters.length)[0]
     console.log("next letter: ", nextLetter);
 
-    if(nextLetter){
-      nextLetter = nextLetter.toLowerCase();
-    }
+    // without this if statement, nextLetter will throw an error
+    // if letters is an empty string (which it is by default)
+    // if(nextLetter){
+    //   nextLetter = nextLetter.toLowerCase();
+    // }
 
-    if(typedLetter.toLowerCase() === nextLetter){
+    if(typedLetter.toLowerCase() === nextLetter.toLowerCase()){
       console.log(spans);
       console.log(correctLetters.length);
       console.log(spans[correctLetters.length]);
@@ -110,14 +115,14 @@ class Game {
   }
 
 
-static finishGame(){
-  audio.pause()
-  gameOver = true
-  strikesCount.innerText = `You beat the song with ${strikes} strikes!`
-  chooseSongDiv.classList.remove('hidden')
-  Scoring.finalScore()
+  static finishGame(){
+    audio.pause()
+    gameOver = true
+    strikesCount.innerText = `You beat the song with ${strikes} strikes!`
+    chooseSongDiv.classList.remove('hidden')
+    Scoring.finalScore()
 
-  // this counter is for the song select menu
-  counter = -1
-}
+    // this counter is for the song select menu
+    counter = -1
+  }
 }

@@ -1,5 +1,3 @@
-const lyricStore = []
-
 class Lyric {
   constructor(object){
     this.id = object.id

@@ -23,6 +23,8 @@ const usernameForm = document.getElementById('username-form')
 const usernameInput = document.getElementById('username-input')
 const elem = document.getElementById('terminal');
 const tenStrikes = document.getElementById('ten-strikes')
+const songStore = []
+const lyricStore = []
 
 let n = 0
 let duration = 0
@@ -31,7 +33,7 @@ let gameOver = false
 let string = elem.innerHTML;
 let i = 0;
 let correctLetters = ""
-// let incorrectLetters = ""
+let letters = ""
 let currentScore
 let strikes
 let thisSong
@@ -40,4 +42,4 @@ let delay
 let username
 let countdown
 let interval
-let letters
+let timeout

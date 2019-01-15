@@ -1,5 +1,3 @@
-const songStore = []
-
 class Song {
   constructor(object){
     this.id = object.id
@@ -19,7 +17,7 @@ class Song {
       data.forEach((object) => {
         new Song(object)
       })
-    })
+    }).then(console.log("finished creating songs", songStore))
   }
 
 
