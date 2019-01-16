@@ -13,23 +13,18 @@ class Menu {
     switch(event.which){
       // if user presses down
       case 40:
-        if(counter === -1){
-          counter += 1
-          array[counter].classList.add('song-select')
-          song.src = mp3Src[counter]
-          song.currentTime = currentTimeArr[counter];
-          song.play()
+        if(counter < -1 || counter > 3){
+          return
         }
         else if(counter <= 3 && counter >= 0) {
           array[counter].classList.remove('song-select')
           song.pause()
-          counter += 1
-
-          array[counter].classList.add('song-select')
-          song.src = mp3Src[counter]
-          song.currentTime = currentTimeArr[counter];
-          song.play()
         }
+        counter += 1
+        array[counter].classList.add('song-select')
+        song.src = mp3Src[counter]
+        song.currentTime = currentTimeArr[counter];
+        song.play()
         break;
       // if user presses up
       case 38:
@@ -56,12 +51,6 @@ class Menu {
   }
 
   static chooseSongHelper(vidURL, songURL, songId, delayNum){
-    // temporary patch: if songStore is empty, exit the function
-    if(songStore === []){
-      console.log("the error occurred");
-      return
-    }
-
     video.src = vidURL
     song.src = songURL
     console.log(songStore);

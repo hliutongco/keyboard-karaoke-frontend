@@ -13,11 +13,11 @@ audio {
 }
 
 video {
-  width: 100%; /* width needs to be set to 100% */
-  height: 100%; /* height needs to be set to 100% */
-  position: absolute;
+  width: 80vw; /* width needs to be set to 100% */
+  height: 70vh; /* height needs to be set to 100% */
+  /* position: absolute;
   left: 0;
-  top: 0;
+  top: 0; */
   z-index: -1;
 }
 
@@ -111,8 +111,11 @@ form {
 
 #lyric-container {
   font-size: 40px;
-  margin-top: 350px;
-  /* position: absolute; */
+  /* margin-top: 350px; */
+  margin-left: 22vw;
+  width: 55vw;
+  position: absolute;
+  top: 0;
   /* bottom: 100px; left: 10px; right: 10px; */
   color: white;
   text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
