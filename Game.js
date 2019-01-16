@@ -1,38 +1,37 @@
 class Game {
   static startGame(event){
-    if(event.which === 13){
-      chooseSongDiv.classList.add('hidden')
-      pressStart.classList.add('hidden')
-      lyricContainer.innerHTML = ''
+    chooseSongDiv.classList.add('hidden')
+    pressStart.classList.add('hidden')
+    lyricContainer.innerHTML = ''
 
-      n = 0
-      duration = 0
-      countdown = 4
-      strikes = 0
-      currentScore = 0
+    n = 0
+    duration = 0
+    countdown = 4
+    strikes = 0
+    currentScore = 0
+    letters = ""
 
-      Scoring.renderStrikes()
-      Scoring.renderScore()
-      Scoring.renderHighScore()
-      strikeBox.classList.remove('hidden')
-      scoreBox.classList.remove('hidden')
-      highScoreBox.classList.remove('hidden')
+    Scoring.renderStrikes()
+    Scoring.renderScore()
+    Scoring.renderHighScore()
+    strikesHeader.classList.remove('hidden')
+    strikesP.classList.remove('hidden')
+    strikesDiv.classList.remove('hidden')
+    scoreDiv.classList.remove('hidden')
+    highScoreBox.classList.remove('hidden')
 
 
-      video.classList.remove('hidden')
-      song.currentTime = 0;
-      video.currentTime = 0;
-      song.play()
-      video.play()
-      console.log(delay);
-      setTimeout(() => this.displayCountdown(), delay - 4000)
-      setTimeout(() => this.displayLyrics(), delay)
-    }
+    video.classList.remove('hidden')
+    song.currentTime = 0;
+    video.currentTime = 0;
+    song.play()
+    video.play()
+    setTimeout(() => this.displayCountdown(), delay - 4000)
+    setTimeout(() => this.displayLyrics(), delay)
   }
 
 
   static displayCountdown(){
-    console.log("test");
     interval = setInterval(() => {
       lyricContainer.innerHTML = `<h2>${--countdown}</h2>`
     }, 1000)
@@ -121,6 +120,8 @@ class Game {
   static finishGame(){
     audio.pause()
     gameOver = true
+    strikesHeader.classList.add('hidden')
+    tenStrikes.classList.add('hidden')
     strikesCount.innerText = `You beat the song with ${strikes} strikes!`
     chooseSongDiv.classList.remove('hidden')
     Scoring.finalScore()

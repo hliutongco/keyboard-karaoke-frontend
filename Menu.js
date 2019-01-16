@@ -6,11 +6,9 @@ class Menu {
   }
 
   static menuSelect(event) {
-    console.log(event);
     const array = [wonderfulWorldH2, everlongH2, roarH2, gangsterH2, bustaH2]
     const mp3Src = ['mp3s/what-a-wonderful-world.mp3', 'mp3s/everlong.mp3', 'mp3s/roar.mp3', 'mp3s/gangster.mp3', 'mp3s/busta.wav']
     const currentTimeArr = [6, 34, 66, 63, 8]
-    console.log(event.which);
 
     switch(event.which){
       // if user presses down
@@ -35,8 +33,6 @@ class Menu {
         break;
       // if user presses up
       case 38:
-        console.log(counter);
-        console.log(array[counter]);
         if(counter >= 1){
           array[counter].classList.remove('song-select')
           song.pause()
@@ -50,8 +46,6 @@ class Menu {
         break;
       // if user presses Enter
       case 13:
-        console.log(this);
-        console.log(array, counter);
         if(array[counter]){
           song.pause()
           array[counter].classList.remove('song-select')
@@ -64,6 +58,7 @@ class Menu {
   static chooseSongHelper(vidURL, songURL, songId, delayNum){
     // temporary patch: if songStore is empty, exit the function
     if(songStore === []){
+      console.log("the error occurred");
       return
     }
 
@@ -98,8 +93,9 @@ class Menu {
 
     chooseSongDiv.classList.add('hidden')
     loseBox.classList.add('hidden')
-    scoreBox.classList.add('hidden')
+    scoreDiv.classList.add('hidden')
     highScoreBox.classList.add('hidden')
+    strikesP.classList.add('hidden')
     console.log(thisSong);
     if(thisSong.id === 5){
       pressStart.innerHTML = "<h2>Press Enter To Play Song  <br/><br/> There are NO strikes! </h2>"

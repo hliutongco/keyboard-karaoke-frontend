@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
   function getSong(event){
     Menu.menuSelect(event);
-    console.log("inside getSong");
     if(event.which === 13){
       document.removeEventListener('keydown', getSong)
       document.addEventListener('keydown', startGame)
@@ -23,7 +22,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
   function startGame(event){
     if(event.which === 13){
-      console.log("INSIDE startGame IF");
       Game.startGame(event)
       document.removeEventListener('keydown', startGame)
       song.addEventListener('ended', finishGame, { once: true })
@@ -33,7 +31,6 @@ document.addEventListener("DOMContentLoaded", function(){
   }
 
   function startTyping(event){
-    console.log("in startTyping", gameOver);
     // if(gameOver){
     //   document.removeEventListener('keydown', startTyping, false)
     //   document.addEventListener('keydown', getSong)

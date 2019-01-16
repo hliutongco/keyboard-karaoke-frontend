@@ -4,23 +4,20 @@ class Scoring {
     let length = lyricContainer.querySelectorAll('span').length - 1
     let last = array[length]
 
-    if (last){
-      if (!last.classList.contains("bg")){
-        strikes +=1
-        this.renderStrikes()
-        if (strikes === 10){
-          gameOver = true
-          song.pause()
-          video.pause()
-          chooseSongDiv.classList.remove('hidden')
-          this.finalScore()
-          strikeBox.classList.add('hidden')
-          loseBox.classList.remove('hidden')
+    if (last && !last.classList.contains("bg")){
+      strikes += 1
+      this.renderStrikes()
+      if (strikes === 10){
+        gameOver = true
+        song.pause()
+        video.pause()
+        chooseSongDiv.classList.remove('hidden')
+        this.finalScore()
+        strikesDiv.classList.add('hidden')
+        loseBox.classList.remove('hidden')
 
-
-          // this counter is for the song select menu
-          counter = -1
-        }
+        // this counter is for the song select menu
+        counter = -1
       }
     }
   }
@@ -45,7 +42,6 @@ class Scoring {
 
    static minusScore(){
      if(!gameOver){
-       console.log("in minusScore");
        currentScore -= 1
      }
        this.renderScore()
