@@ -1,6 +1,7 @@
 body {
   text-align: center;
-  font-family: Tahoma;
+  font-family: Verdana;
+  background-color: #E6E6E6;
   user-select: none;
   -moz-user-select: none;
   -webkit-user-select: none;
@@ -13,16 +14,23 @@ audio {
 }
 
 video {
-  width: 80vw; /* width needs to be set to 100% */
-  height: 70vh; /* height needs to be set to 100% */
+  width: 80vw;
+  max-height: 60vh;
+  /* width needs to be set to 100% */
+  /* height: 70vh; /* height needs to be set to 100% */
   /* position: absolute;
   left: 0;
   top: 0; */
   z-index: -1;
 }
 
+h1 {
+  font-size: 3vw;
+  background: #E6E6E6 none repeat scroll 0 0;
+}
+
 h2 {
-  font-size: 4vh;
+  font-size: 2.3vw;
 }
 
 input {
@@ -41,9 +49,18 @@ input:focus {
   background: none;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #E6E6E6 inset;
+}
+
 form {
-  padding: 5vh 5vw 5vh 5vw;
-  border: 2px solid black;
+  width: 60vw;
+  margin-left: 12.5vw;
+  padding: 10vh 5vw 10vh 5vw;
+  border: 3px solid black;
   border-radius: 5px;
 }
 
@@ -66,6 +83,7 @@ form {
 
 .span {
   font-family: 'Times New Roman';
+  font-size: 3vw;
 }
 
 .flex-item {
@@ -79,7 +97,7 @@ form {
 }
 
 #header {
-  margin-bottom: 100px;
+  margin-bottom: 10vh;
 }
 
 #strikes {
@@ -94,7 +112,7 @@ form {
   height: 100%;
   position: absolute;
   top: 0; left: 10; right: 0;
-  background-color: white;
+  background-color: #E6E6E6;
 }
 
 #choose-song {
@@ -102,7 +120,11 @@ form {
   height: 100%;
   position: absolute;
   top: 0; left: 10; right: 0;
-  background-color: white;
+  background-color: #E6E6E6;
+}
+
+#choose-song h2 {
+  font-size: 2.3vw;
 }
 
 #choose-song-h2 {
@@ -110,7 +132,7 @@ form {
 }
 
 #lyric-container {
-  font-size: 40px;
+  /* font-size: 40px; */
   /* margin-top: 350px; */
   margin-left: 22vw;
   width: 55vw;
@@ -123,16 +145,12 @@ form {
 
 #video-container {
   /* width: 640px; */
-  height: 480px;
+  /* height: 60vh; */
   margin: 0 auto;
-  top: 0; bottom: 0;
-  overflow: hidden;
+  top: 10; bottom: 0;
   position: relative;
 }
 
-h1 {
-    background: white none repeat scroll 0 0;
-}
 
 #terminal {
     color: black;
@@ -140,7 +158,7 @@ h1 {
     padding: 20px;
     border-radius: 10px;
     margin: 0 auto;
-    font-size: 10vh;
+    font-size: 8vw;
     text-align: center;
     font-family: consolas, sans-serif;
     display: none;
