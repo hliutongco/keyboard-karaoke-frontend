@@ -87,10 +87,18 @@ class Menu {
     strikesP.classList.add('hidden')
     console.log(thisSong);
     if(thisSong.id === 5){
-      pressStart.innerHTML = "<h2>Press Enter To Play Song  <br/><br/> There are NO strikes! </h2>"
+      pressStart.innerHTML = `
+      <h1> Press <span class="green">Enter</span> To Play Song </h1>
+      <h2> <li>There are <span class="green">NO</span> strikes!</li> </h2>
+      <h2> <li>Typos decrease your score!</li> </h2>
+      `
     }
     else {
-      pressStart.innerHTML = "<h2>Press Enter To Play Song <br/><br/> You get a strike when you can't complete a lyric!</h2>"
+      pressStart.innerHTML = `
+      <h1> Press <span class="green">Enter</span> To Play Song </h1>
+      <h2> <li>You get a strike when you can't complete a lyric!</li> </h2>
+      <h2> <li>Typos decrease your score!</li> </h2>
+      `
     }
     pressStart.classList.remove('hidden')
   }
