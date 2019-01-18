@@ -1,7 +1,7 @@
 body {
   text-align: center;
   font-family: Verdana;
-  background-color: #f2f7f3;
+  background-color: #ffefdb;
   color: #000;
   user-select: none;
   margin: 0;
@@ -32,7 +32,7 @@ video {
 h1 {
   font-size: 3.5vw;
   margin-bottom: 1vh;
-  background: #f2f7f3 none repeat scroll 0 0;
+  background: #ffefdb none repeat scroll 0 0;
 }
 
 h2 {
@@ -56,6 +56,7 @@ input {
   background: none;
   border: none;
   border-bottom: 3px solid #000;
+  font-weight: bold;
   cursor: default;
 }
 
@@ -68,7 +69,7 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 50px #f2f7f3 inset;
+  -webkit-box-shadow: 0 0 0 50px #ffefdb inset;
 }
 
 form {
@@ -134,7 +135,7 @@ form {
   background-size: cover;
   position: absolute;
   top: 0; left: 0;
-  background-color: #f2f7f3;
+  background-color: #ffefdb;
   /* padding-top: 10vh; */
 }
 
@@ -146,8 +147,8 @@ form {
   margin: 7.5vh auto;
 }
 
-.green {
-  color: #04acaf;
+.red {
+  color: #d11d1d;
 }
 
 #choose-song {
@@ -155,7 +156,7 @@ form {
   height: 100%;
   position: absolute;
   top: 0; left: 10; right: 0;
-  background-color: #f2f7f3;
+  background-color: #ffefdb;
 }
 
 #choose-song h2 {

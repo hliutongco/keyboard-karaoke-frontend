@@ -88,16 +88,16 @@ class Menu {
     console.log(thisSong);
     if(thisSong.id === 5){
       pressStart.innerHTML = `
-      <h1> Press <span class="green">Enter</span> To Play Song </h1>
-      <h2> <li>There are <span class="green">NO</span> strikes!</li> </h2>
-      <h2> <li>Typos decrease your score!</li> </h2>
+      <h1> Press <span class="red">Enter</span> To Play Song </h1>
+      <h2> There are <span class="red">NO</span> strikes! </h2>
+      <h2> Typos decrease your score! </h2>
       `
     }
     else {
       pressStart.innerHTML = `
-      <h1> Press <span class="green">Enter</span> To Play Song </h1>
-      <h2> <li>You get a strike when you can't complete a lyric!</li> </h2>
-      <h2> <li>Typos decrease your score!</li> </h2>
+      <h1> Press <span class="red">Enter</span> To Play Song </h1>
+      <h2> You get a strike when you can't complete a lyric! </h2>
+      <h2> Typos decrease your score! </h2>
       `
     }
     pressStart.classList.remove('hidden')
