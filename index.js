@@ -9,8 +9,14 @@ document.addEventListener("DOMContentLoaded", function(){
     Welcome.submitUsername(event)
     Menu.songMenu()
 
+    resetCounter()
+
     document.addEventListener('keydown', getSong)
   })
+
+  function resetCounter(){
+    counter = -1
+  }
 
   function getSong(event){
     Menu.menuSelect(event);
@@ -28,9 +34,23 @@ document.addEventListener("DOMContentLoaded", function(){
       song.addEventListener('pause', finishGame, { once: true })
       document.addEventListener('keydown', startTyping, false)
     }
+    else if(event.which === 27){
+      Menu.songMenu()
+      resetCounter()
+      clearTimeout(countdownTimeout)
+      clearTimeout(timeout)
+      document.removeEventListener('keydown', startGame)
+      document.addEventListener('keydown', getSong)
+    }
   }
 
   function startTyping(event){
+    if(event.which === 27){
+      exitGame()
+    }
+    else {
+      Game.typing(event)
+    }
     // if(gameOver){
     //   document.removeEventListener('keydown', startTyping, false)
     //   document.addEventListener('keydown', getSong)
@@ -38,12 +58,19 @@ document.addEventListener("DOMContentLoaded", function(){
     //   clearTimeout(timeout)
     //   return
     // }
-    Game.typing(event)
 
+  }
+
+  function exitGame(){
+    clearTimeout(countdownTimeout)
+    audio.pause()
+    strikesCount.classList.add('hidden')
+    strikesQuit.classList.remove('hidden')
   }
 
   function finishGame(event){
     Game.finishGame()
+    resetCounter()
     document.removeEventListener('keydown', startTyping, false)
     document.addEventListener('keydown', getSong)
     gameOver = false

@@ -84,20 +84,25 @@ class Menu {
     loseBox.classList.add('hidden')
     scoreDiv.classList.add('hidden')
     highScoreBox.classList.add('hidden')
-    strikesP.classList.add('hidden')
+    strikesDiv.classList.add('hidden')
+
     console.log(thisSong);
     if(thisSong.id === 5){
       pressStart.innerHTML = `
-      <h1> Press <span class="red">Enter</span> To Play Song </h1>
-      <h2> There are <span class="red">NO</span> strikes! </h2>
+      <h1> Instructions </h1>
+      <h2> There are NO strikes! </h2>
       <h2> Typos decrease your score! </h2>
+      <h2> Press <span class="red">ESC</span> anytime to return to the menu </h2>
+      <h2> Press <span class="red">Enter</span> To Start </h2>
       `
     }
     else {
       pressStart.innerHTML = `
-      <h1> Press <span class="red">Enter</span> To Play Song </h1>
+      <h1> Instructions </h1>
       <h2> You get a strike when you can't complete a lyric! </h2>
       <h2> Typos decrease your score! </h2>
+      <h2> Press <span class="red">ESC</span> anytime to return to the menu </h2>
+      <h2> Press <span class="red">Enter</span> To Start </h2>
       `
     }
     pressStart.classList.remove('hidden')

@@ -15,6 +15,7 @@ const scoreArea = document.getElementById("score")
 const highScoreArea = document.getElementById("high-score")
 const strikesDiv = document.getElementById('strikes')
 const strikesCount = document.getElementById("strikesP")
+const strikesQuit = document.getElementById("strikesQuit")
 const strikesHeader = document.getElementById("strikes-header")
 const loseBox = document.getElementById("lose")
 const highScoreBox = document.getElementById('highscore-div')
@@ -42,3 +43,4 @@ let username
 let countdown
 let interval
 let timeout
+let countdownTimeout

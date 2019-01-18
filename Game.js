@@ -15,7 +15,8 @@ class Game {
     Scoring.renderScore()
     Scoring.renderHighScore()
     strikesHeader.classList.remove('hidden')
-    strikesP.classList.remove('hidden')
+    strikesCount.classList.remove('hidden')
+    strikesQuit.classList.add('hidden')
     strikesDiv.classList.remove('hidden')
     scoreDiv.classList.remove('hidden')
     highScoreBox.classList.remove('hidden')
@@ -26,8 +27,8 @@ class Game {
     video.currentTime = 0;
     song.play()
     video.play()
-    setTimeout(() => this.displayCountdown(), delay - 4000)
-    setTimeout(() => this.displayLyrics(), delay)
+    countdownTimeout = setTimeout(() => this.displayCountdown(), delay - 4000)
+    timeout = setTimeout(() => this.displayLyrics(), delay)
   }
 
 
@@ -118,7 +119,7 @@ class Game {
 
 
   static finishGame(){
-    audio.pause()
+    video.pause()
     gameOver = true
     strikesHeader.classList.add('hidden')
     tenStrikes.classList.add('hidden')
