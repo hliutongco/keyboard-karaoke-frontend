@@ -33,7 +33,7 @@ class Game {
 
   static displayCountdown(){
     interval = setInterval(() => {
-      lyricContainer.innerHTML = `<h2>${--countdown}</h2>`
+      lyricContainer.innerHTML = `<h2 id="countdown">${--countdown}</h2>`
     }, 1000)
   }
 

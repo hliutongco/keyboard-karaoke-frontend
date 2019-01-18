@@ -1,8 +1,8 @@
 body {
   text-align: center;
   font-family: Verdana;
-  background-color: #ffefdb;
-  color: #09173a;
+  background-color: #f2f7f3;
+  color: #000;
   user-select: none;
   margin: 0;
   -moz-user-select: none;
@@ -32,7 +32,7 @@ video {
 h1 {
   font-size: 3.5vw;
   margin-bottom: 1vh;
-  background: #ffefdb none repeat scroll 0 0;
+  background: #f2f7f3 none repeat scroll 0 0;
 }
 
 h2 {
@@ -55,7 +55,7 @@ input {
   font-size: 5vh;
   background: none;
   border: none;
-  border-bottom: 3px solid #09173a;
+  border-bottom: 3px solid #000;
   cursor: default;
 }
 
@@ -68,14 +68,14 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 30px #ffefdb inset;
+  -webkit-box-shadow: 0 0 0 50px #f2f7f3 inset;
 }
 
 form {
   width: 60vw;
   margin-left: 12.5vw;
   padding: 10vh 5vw 10vh 5vw;
-  border: 3px solid #09173a;
+  border: 3px solid #000;
   border-radius: 5px;
 }
 
@@ -84,7 +84,7 @@ form {
 }
 
 .bg {
-	background-color: #04AF71;
+	background-color: #04acaf;
 }
 
 .song-select:before {
@@ -93,7 +93,7 @@ form {
 }
 
 .song-select {
-  color: #D40000;
+  color: #d11d1d;
 }
 
 .span {
@@ -103,6 +103,7 @@ form {
 
 .flex-item {
   width: 30%;
+  padding-bottom: 15vh;
 }
 
 .flex-item h3 {
@@ -133,7 +134,7 @@ form {
   background-size: cover;
   position: absolute;
   top: 0; left: 0;
-  background-color: #ffefdb;
+  background-color: #f2f7f3;
   /* padding-top: 10vh; */
 }
 
@@ -146,7 +147,7 @@ form {
 }
 
 .green {
-  color: #04AF71;
+  color: #04acaf;
 }
 
 #choose-song {
@@ -154,7 +155,7 @@ form {
   height: 100%;
   position: absolute;
   top: 0; left: 10; right: 0;
-  background-color: #ffefdb;
+  background-color: #f2f7f3;
 }
 
 #choose-song h2 {
@@ -186,9 +187,13 @@ form {
   background-color: black;
 }
 
+#countdown {
+  font-size: 4vw;
+}
+
 
 #terminal {
-    color: #09173a;
+    color: #000;
 /*    text-shadow: 1px 1px 5px #000;*/
     padding: 20px;
     border-radius: 10px;
