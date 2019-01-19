@@ -1,5 +1,9 @@
 document.addEventListener("DOMContentLoaded", function(){
 
+  Song.getSongs()
+  .then(() => Lyric.getLyrics())
+  .then(() => loadingScreen.classList.add('hidden'))
+// 
   Welcome.loop();
 
   usernameInput.focus()
@@ -77,6 +81,4 @@ document.addEventListener("DOMContentLoaded", function(){
     clearTimeout(timeout)
   }
 
-  Song.getSongs()
-  Lyric.getLyrics()
 })

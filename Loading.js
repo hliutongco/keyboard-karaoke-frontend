@@ -1,0 +1,5 @@
+class Loading {
+  static renderLoading(){
+    
+  }
+}

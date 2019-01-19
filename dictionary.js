@@ -1,4 +1,5 @@
 const header = document.getElementById('header')
+const loadingScreen = document.getElementById('loading-screen')
 const chooseSongDiv = document.getElementById('choose-song')
 const lyricContainer = document.getElementById('lyric-container')
 const song = document.getElementById('audio')
