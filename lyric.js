@@ -10,10 +10,8 @@ class Lyric {
   }
 
   static getLyrics(){
-    return fetch('https://keyboard-karaoke-v1.herokuapp.com/api/v1/lyrics')
-    .then(response => response.json())
-    .then(data => {
-      data.forEach((object) => {
+    data.forEach((songObject) => {
+      songObject["lyrics"].forEach((object) => {
         new Lyric(object)
       })
     })

@@ -1,9 +1,10 @@
 document.addEventListener("DOMContentLoaded", function(){
 
   Song.getSongs()
-  .then(() => Lyric.getLyrics())
-  .then(() => loadingScreen.classList.add('hidden'))
-// 
+  Lyric.getLyrics()
+// this will eventually be asynchronous
+  loadingScreen.classList.add('hidden')
+
   Welcome.loop();
 
   usernameInput.focus()

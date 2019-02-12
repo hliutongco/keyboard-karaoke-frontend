@@ -11,13 +11,9 @@ class Song {
   }
 
   static getSongs(){
-    return fetch('https://keyboard-karaoke-v1.herokuapp.com/api/v1/songs')
-    .then(response => response.json())
-    .then(data => {
-      data.forEach((object) => {
-        new Song(object)
-      })
-    }).then(console.log("finished creating songs", songStore))
+    data.forEach((object) => {
+      new Song(object)
+    })
   }
 
 
