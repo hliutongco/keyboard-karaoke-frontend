@@ -1,4 +1,5 @@
 body {
+  height: 100vh;
   text-align: center;
   font-family: Verdana;
   background-color: #ffefdb;
@@ -17,7 +18,7 @@ audio {
 
 video {
   width: 65vw;
-  max-height: 60vh;
+  height: 100%;
   object-fit: fill;
   /* -webkit-transform: scaleX(2);
   -moz-transform: scaleX(2); */
@@ -158,18 +159,24 @@ form {
 #flex-container {
   /* top: 5px; */
   display: flex;
+  height: 40vh;
 }
 
 #header {
   margin-bottom: 10vh;
 }
 
-#strikes, #lose {
-  max-width: 711px;
-  max-height: 360px;
+#highscore-div, #strikes, #lose {
+  /* max-width: 711px;
+  max-height: 360px; */
   padding: 0 5vw;
-  border-right: 2px solid black;
+  border-top: 2px solid black;
   border-left: 2px solid black;
+}
+
+#score-div {
+  padding: 0 5vw;
+  border-top: 2px solid black;
 }
 
 #press-start {
@@ -225,9 +232,8 @@ form {
 
 #video-container {
   /* width: 640px; */
-  /* height: 60vh; */
+  height: 60vh;
   margin: 0 auto;
-  top: 10; bottom: 0;
   position: relative;
   background-color: black;
 }
