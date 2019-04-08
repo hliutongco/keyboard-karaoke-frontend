@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function(){
   Song.getSongs()
   .then(() => Lyric.getLyrics())
   .then(() => loadingScreen.classList.add('hidden'))
-// 
+
   Welcome.loop();
 
   usernameInput.focus()
@@ -55,14 +55,6 @@ document.addEventListener("DOMContentLoaded", function(){
     else {
       Game.typing(event)
     }
-    // if(gameOver){
-    //   document.removeEventListener('keydown', startTyping, false)
-    //   document.addEventListener('keydown', getSong)
-    //   gameOver = false
-    //   clearTimeout(timeout)
-    //   return
-    // }
-
   }
 
   function exitGame(){
