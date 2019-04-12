@@ -7,7 +7,7 @@ class Menu {
 
   static menuSelect(event) {
     const array = [wonderfulWorldH2, everlongH2, roarH2, gangsterH2, bustaH2]
-    const mp3Src = ['mp3s/what-a-wonderful-world.mp3', 'mp3s/everlong.mp3', 'mp3s/roar.mp3', 'mp3s/gangster.mp3', 'mp3s/busta.wav']
+    const mp3Src = ['https://keyboard-karaoke-node-backend.herokuapp.com/waww-mp3', 'https://keyboard-karaoke-node-backend.herokuapp.com/everlong-mp3', 'https://keyboard-karaoke-node-backend.herokuapp.com/roar-mp3', 'https://keyboard-karaoke-node-backend.herokuapp.com/gangster-mp3', 'https://keyboard-karaoke-node-backend.herokuapp.com/busta-mp3']
     const currentTimeArr = [6, 34, 66, 63, 8]
 
     switch(event.which){
@@ -55,28 +55,42 @@ class Menu {
     song.src = songURL
     console.log(songStore);
     console.log(songId);
-    lyrics = lyricStore.filter((object) => object.song_id === songId)
-    thisSong = songStore.find((object) => object.id === songId)
+
+    const compare = (a, b) => {
+       let comparison = 0;
+       if (a.lyric_order > b.lyric_order) {
+         comparison = 1;
+       }
+       else if (a.lyric_order  < b.lyric_order) {
+         comparison = -1;
+       }
+       return comparison;
+     }
+
+    const sortedLyrics = lyricStore.sort(compare);
+    lyrics = sortedLyrics.filter((lyric) => lyric.song_id === songId)
+    thisSong = songStore.find((object) => object.name === songId)
     delay = delayNum
-    console.log(thisSong);
+    console.log(sortedLyrics);
+    console.log(lyrics);
   }
 
   static chooseSong(id){
     switch(id){
       case 'choose-roar':
-        this.chooseSongHelper('video/Roar.mp4', 'mp3s/roar.mp3', 1, 19500)
+        this.chooseSongHelper('https://keyboard-karaoke-node-backend.herokuapp.com/Roar-video', 'https://keyboard-karaoke-node-backend.herokuapp.com/roar-mp3', "roar", 19500)
         break;
       case 'choose-everlong':
-        this.chooseSongHelper('video/everlong.mp4', 'mp3s/everlong.mp3', 4, 34000)
+        this.chooseSongHelper('https://keyboard-karaoke-node-backend.herokuapp.com/everlong-video', 'https://keyboard-karaoke-node-backend.herokuapp.com/everlong-mp3', "everlong", 34000)
         break;
       case 'choose-wonderful-world':
-        this.chooseSongHelper('video/what-a-wonderful-world.mp4', 'mp3s/what-a-wonderful-world.mp3', 2, 6020)
+        this.chooseSongHelper('https://keyboard-karaoke-node-backend.herokuapp.com/waww-video', 'https://keyboard-karaoke-node-backend.herokuapp.com/waww-mp3', "what a wonderful world", 6020)
         break;
       case 'choose-gangster':
-        this.chooseSongHelper('video/gangster.mp4', 'mp3s/gangster.mp3', 3, 26200)
+        this.chooseSongHelper('https://keyboard-karaoke-node-backend.herokuapp.com/gangster-video', 'https://keyboard-karaoke-node-backend.herokuapp.com/gangster-mp3', "gangster paradise", 26200)
         break;
       case 'choose-busta':
-        this.chooseSongHelper('video/busta.mp4', 'mp3s/busta.wav', 5, 8500)
+        this.chooseSongHelper('https://keyboard-karaoke-node-backend.herokuapp.com/busta-video', 'https://keyboard-karaoke-node-backend.herokuapp.com/busta-mp3', "look at me now", 8500)
         break;
     }
 

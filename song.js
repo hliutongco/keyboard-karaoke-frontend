@@ -1,9 +1,8 @@
 class Song {
   constructor(object){
-    this.id = object.id
+    this.id = object._id
     this.name = object.name
-    this.duration = object.duration
-    this.username = object.username
+    this.username = object.player
     this.score = object.score
 
 
@@ -11,7 +10,7 @@ class Song {
   }
 
   static getSongs(){
-    return fetch('https://keyboard-karaoke-v1.herokuapp.com/api/v1/songs')
+    return fetch('https://keyboard-karaoke-node-backend.herokuapp.com/songs')
     .then(response => response.json())
     .then(data => {
       data.forEach((object) => {
@@ -22,7 +21,7 @@ class Song {
 
 
   sendScore(){
-    fetch(`https://keyboard-karaoke-v1.herokuapp.com/api/v1/songs/${this.id}`, {
+    fetch(`https://keyboard-karaoke-node-backend.herokuapp.com/songs/${this.id}`, {
     method: 'PATCH',
     headers: {
       "Content-Type": "application/json",

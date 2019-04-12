@@ -45,6 +45,7 @@ class Game {
   }
 
   static displayLine(){
+    console.log(lyrics);
     console.log("n: ", n);
     console.log("n: ", duration);
     if(lyrics[n] && !gameOver){

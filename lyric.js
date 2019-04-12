@@ -1,8 +1,8 @@
 class Lyric {
   constructor(object){
-    this.id = object.id
-    this.song_id = object.song_id
-    this.start = object.start
+    this.id = object._id
+    this.lyric_order = object.lyric_order
+    this.song_id = object.song
     this.duration = object.duration
     this.content = object.content
 
@@ -10,7 +10,7 @@ class Lyric {
   }
 
   static getLyrics(){
-    return fetch('https://keyboard-karaoke-v1.herokuapp.com/api/v1/lyrics')
+    return fetch('https://keyboard-karaoke-node-backend.herokuapp.com/lyrics')
     .then(response => response.json())
     .then(data => {
       data.forEach((object) => {
