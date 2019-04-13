@@ -16,21 +16,19 @@ class Song {
       data.forEach((object) => {
         new Song(object)
       })
-    }).then(console.log("finished creating songs", songStore))
+    })
   }
 
 
   sendScore(){
     fetch(`https://keyboard-karaoke-node-backend.herokuapp.com/songs/${this.id}`, {
-    method: 'PATCH',
-    headers: {
-      "Content-Type": "application/json",
-      "Accept": "application/json"
-    },
-    body: JSON.stringify({username: `${this.username}`, score: `${this.score}`})
-  }).then(res=>res.json())
+      method: 'PATCH',
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({player: `${this.username}`, score: `${this.score}`})})
   }
-
 
 
 }

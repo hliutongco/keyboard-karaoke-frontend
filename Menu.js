@@ -53,8 +53,6 @@ class Menu {
   static chooseSongHelper(vidURL, songURL, songId, delayNum){
     video.src = vidURL
     song.src = songURL
-    console.log(songStore);
-    console.log(songId);
 
     const compare = (a, b) => {
        let comparison = 0;
@@ -71,8 +69,6 @@ class Menu {
     lyrics = sortedLyrics.filter((lyric) => lyric.song_id === songId)
     thisSong = songStore.find((object) => object.name === songId)
     delay = delayNum
-    console.log(sortedLyrics);
-    console.log(lyrics);
   }
 
   static chooseSong(id){
@@ -100,7 +96,6 @@ class Menu {
     highScoreBox.classList.add('hidden')
     strikesDiv.classList.add('hidden')
 
-    console.log(thisSong);
     if(thisSong.id === 5){
       pressStart.innerHTML = `
       <h1> Instructions </h1>

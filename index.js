@@ -58,7 +58,6 @@ document.addEventListener("DOMContentLoaded", function(){
   }
 
   function exitGame(){
-    clearTimeout(countdownTimeout)
     audio.pause()
     strikesCount.classList.add('hidden')
     strikesQuit.classList.remove('hidden')
@@ -71,6 +70,8 @@ document.addEventListener("DOMContentLoaded", function(){
     document.addEventListener('keydown', getSong)
     gameOver = false
     clearTimeout(timeout)
+    clearTimeout(countdownTimeout)
+    window.clearInterval(interval)
   }
 
 })
