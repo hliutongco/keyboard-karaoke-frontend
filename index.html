@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Keyboard Karaoke</title>
+    <link rel="stylesheet" href="stylesheet.css">
+  </head>
+  <body>
+
+    <div id="loading-screen">
+      <div class="lds-dual-ring"></div>
+      <h3>Loading...</h3>
+    </div>
+
+    <div id="header"><h1><div id="terminal" preload="preload" >Keyboard...Karaoke!!</div></h1></div>
+
+
+    <div id='video-container'>
+      <video class="hidden" preload="preload" id="video">
+        <source type="video/mp4"></source>
+      </video>
+      <div id="lyric-container">
+      </div>
+      <div id="press-start">
+        <form id="username-form">
+          <input id="username-input" type="text">
+          <h2>type your username and press <span class="red">Enter</span></h2>
+        </form>
+      </div>
+
+      <div class="hidden" id="choose-song">
+        <h1 id="choose-song-h2">Use The	<span class="red">↑</span> And <span class="red">↓</span> Keys To Select</h1>
+        <br/>
+        <h2><span id="choose-wonderful-world">Louis Armstrong - What A Wonderful World (Easy)</span></h2>
+        <h2><span id="choose-everlong">Foo Fighters - Everlong (Normal)</span></h2>
+        <h2><span id="choose-roar">Katy Perry - Roar (Difficult)</span></h2>
+        <h2><span id="choose-gangster">Coolio - Gangster's Paradise (Very Difficult)</span></h2>
+        <h2><span id="choose-busta">Busta Rhymes (Impossible - NO STRIKES)</span></h2>
+      </div>
+    </div>
+
+
+    <div id="flex-container">
+      <div class="hidden flex-item" id="score-div">
+        <h3> YOUR SCORE </h3>
+        <h4 id="score"></h3>
+      </div>
+      <div class="hidden flex-item" id="strikes">
+        <h3 id="strikes-header"> STRIKES  </h3>
+        <h2 id="strikesP"></h2>
+        <h2 id="strikesQuit" class="hidden">You quitter 😒</h2>
+        <h4 id="ten-strikes">Ten Strikes and You're Out</h3>
+      </div>
+      <div class="hidden flex-item" id="lose">
+        <h2>Strike 10! YOU LOSE!</h3>
+      </div>
+      <div class="hidden flex-item" id="highscore-div">
+        <h3> HIGH SCORE </h3>
+        <h4 id="high-score"></h3>
+      <div>
+    </div>
+
+    <audio id="audio" preload="auto" volume="1.0">
+
+    <script src="dictionary.js"></script>
+    <script src="Menu.js"></script>
+    <script src="Song.js"></script>
+    <script src="Lyric.js"></script>
+    <script src="Scoring.js"></script>
+    <script src="Game.js"></script>
+    <script src="Welcome.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
