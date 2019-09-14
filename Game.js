@@ -78,12 +78,6 @@ class Game {
 
     let nextLetter = letters.length === correctLetters.length ? "" : letters.slice(correctLetters.length)[0]
 
-    // without this if statement, nextLetter will throw an error
-    // if letters is an empty string (which it is by default)
-    // if(nextLetter){
-    //   nextLetter = nextLetter.toLowerCase();
-    // }
-
     if(typedLetter.toLowerCase() === nextLetter.toLowerCase()){
       // This was because of Arthur
       // Yay!
