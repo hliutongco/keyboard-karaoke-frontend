@@ -4,8 +4,8 @@ class Game {
     pressStart.classList.add('hidden')
     lyricContainer.innerHTML = ''
 
-    n = 0
-    duration = 0
+    // n = 0
+    // duration = 0
     countdown = 4
     strikes = 0
     currentScore = 0
@@ -41,20 +41,62 @@ class Game {
   static displayLyrics(){
     window.clearInterval(interval)
 
-    this.displayLine()
+    function* generateTimeouts(){
+      for(let n = 0; n < lyrics.length; n++){
+        if(lyrics[n] && !gameOver){
+          // const duration = lyrics[n].duration * 1000
+          // timeout = setTimeout(() => this.displayLine(n), duration)
+          yield lyrics[n]
+        }
+      }
+    }
+
+
+    const generatorObj = generateTimeouts();
+    const val1 = generatorObj.next()
+    this.displayLine(val1.value);
+
+
+    function timeoutCallback(prevGeneratorObj){
+
+    }
+
+    setTimeout(() => {
+      const testVal = generatorObj.next()
+      this.displayLine(testVal.value);
+
+      setTimeout(() => {
+        const testVal2 = generatorObj.next()
+        this.displayLine(testVal2.value);
+
+        setTimeout(() => {
+          const testVal3 = generatorObj.next()
+          this.displayLine(testVal3.value);
+        }, testVal2.value.duration * 1000)
+
+      }, testVal.value.duration * 1000)
+
+    }, val1.value.duration * 1000)
+
+
+    // const val3 = generatorObj.next()
+    // const val4 = generatorObj.next()
+    // console.log(val2.value.content);
+    // console.log(val3);
+    // console.log(val4);
   }
 
-  static displayLine(){
-    if(lyrics[n] && !gameOver){
+  static displayLine(currentLyric){
+    console.log("inside displayLine: ", currentLyric);
+    // if(lyrics[n] && !gameOver){
       correctLetters = ""
-      // incorrectLetters = ""
-      letters = lyrics[n].content
+      letters = currentLyric.content
       const words = document.createElement('p')
 
       // build the words with span elements around the letters
-      for (let i = 0; i < lyrics[n].content.length; i++) {
+      for (let i = 0; i < currentLyric.content.length; i++) {
         const span = document.createElement("span");
-        span.innerHTML = lyrics[n].content[i];
+        span.innerHTML = currentLyric.content[i];
         span.classList.add("span")
         words.appendChild(span);
       }
@@ -64,12 +106,9 @@ class Game {
       }
 
       lyricContainer.innerHTML = words.innerHTML
-      duration = lyrics[n].duration * 1000
-      n++;
+      // n++;
 
-      timeout = setTimeout(() => this.displayLine(), duration)
-
-    }
+    // }
   }
 
   static typing(event) {
