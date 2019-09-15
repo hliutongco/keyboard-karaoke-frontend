@@ -38,57 +38,48 @@ class Game {
     }, 1000)
   }
 
+  // setTimeout(() => {
+  //   this.displayLine(lyrics[n])
+  //   n++
+  //   setTimeout(() => {
+  //     this.displayLine(lyrics[n])
+  //     n++
+  //     setTimeout(() => {
+  //       this.displayLine(lyrics[n])
+  //       n++
+  //       setTimeout(() => {
+  //         this.displayLine(lyrics[n])
+  //       }, lyrics[n].duration * 1000)
+  //     }, lyrics[n].duration * 1000)
+  //   }, lyrics[n].duration * 1000)
+  // }, lyrics[n].duration * 1000)
+
   static displayLyrics(){
     window.clearInterval(interval)
 
-    function* generateTimeouts(){
-      for(let n = 0; n < lyrics.length; n++){
-        if(lyrics[n] && !gameOver){
-          // const duration = lyrics[n].duration * 1000
-          // timeout = setTimeout(() => this.displayLine(n), duration)
-          yield lyrics[n]
-        }
+    function delay(duration, getNextLyric) {
+      if(!gameOver){
+        timeout = setTimeout(() => {
+          getNextLyric();
+        }, duration * 1000);
       }
     }
 
-
-    const generatorObj = generateTimeouts();
-    const val1 = generatorObj.next()
-    this.displayLine(val1.value);
-
-
-    function timeoutCallback(prevGeneratorObj){
-
+    function run(generatorFunction) {
+      const generatorObj = generatorFunction((callbackValue) => generatorObj.next(callbackValue));
+      generatorObj.next()
     }
 
-    setTimeout(() => {
-      const testVal = generatorObj.next()
-      this.displayLine(testVal.value);
+    run(function* createGenerator(getNextLyric) {
+      for(var n = 0; n < lyrics.length; n++) {
+        this.displayLine(lyrics[n]);
+        yield delay(lyrics[n].duration, getNextLyric);
+      }
+    }.bind(this));
 
-      setTimeout(() => {
-        const testVal2 = generatorObj.next()
-        this.displayLine(testVal2.value);
-
-        setTimeout(() => {
-          const testVal3 = generatorObj.next()
-          this.displayLine(testVal3.value);
-        }, testVal2.value.duration * 1000)
-
-      }, testVal.value.duration * 1000)
-
-    }, val1.value.duration * 1000)
-
-
-    // const val3 = generatorObj.next()
-    // const val4 = generatorObj.next()
-    // console.log(val2.value.content);
-    // console.log(val3);
-    // console.log(val4);
   }
 
   static displayLine(currentLyric){
-    console.log("inside displayLine: ", currentLyric);
-    // if(lyrics[n] && !gameOver){
       correctLetters = ""
       letters = currentLyric.content
       const words = document.createElement('p')
@@ -106,9 +97,6 @@ class Game {
       }
 
       lyricContainer.innerHTML = words.innerHTML
-      // n++;
-
-    // }
   }
 
   static typing(event) {
