@@ -4,8 +4,6 @@ class Game {
     pressStart.classList.add('hidden')
     lyricContainer.innerHTML = ''
 
-    // n = 0
-    // duration = 0
     countdown = 4
     strikes = 0
     currentScore = 0
@@ -38,38 +36,27 @@ class Game {
     }, 1000)
   }
 
-  // setTimeout(() => {
-  //   this.displayLine(lyrics[n])
-  //   n++
-  //   setTimeout(() => {
-  //     this.displayLine(lyrics[n])
-  //     n++
-  //     setTimeout(() => {
-  //       this.displayLine(lyrics[n])
-  //       n++
-  //       setTimeout(() => {
-  //         this.displayLine(lyrics[n])
-  //       }, lyrics[n].duration * 1000)
-  //     }, lyrics[n].duration * 1000)
-  //   }, lyrics[n].duration * 1000)
-  // }, lyrics[n].duration * 1000)
-
   static displayLyrics(){
     window.clearInterval(interval)
 
+    // This function sets up the setTimeouts
+    // Each setTimeout calls generatorObj.next() to resume the generator function
     function delay(duration, getNextLyric) {
       if(!gameOver){
-        timeout = setTimeout(() => {
-          getNextLyric();
-        }, duration * 1000);
+        timeout = setTimeout(getNextLyric, duration * 1000);
       }
     }
 
-    function run(generatorFunction) {
-      const generatorObj = generatorFunction((callbackValue) => generatorObj.next(callbackValue));
+    // This is the runner method that accepts the generator func as an argument
+    // generatorObj.next needs to be wrapped in a function in order for generatorObj variable to initialize
+    function run(createGenerator) {
+      const generatorObj = createGenerator(() => generatorObj.next());
       generatorObj.next()
     }
 
+    // We pass in a generator function as the argument for the run() function
+    // Inside the loop, we display the current lyric then set up the next setTimeout
+    // getNextLyric refers to: () => generatorObj.next()
     run(function* createGenerator(getNextLyric) {
       for(var n = 0; n < lyrics.length; n++) {
         this.displayLine(lyrics[n]);
